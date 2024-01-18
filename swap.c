@@ -2,8 +2,8 @@
 
 /**
  * swap - swap two top elements.
- * @stack: pointer to stack.
- * @line_number: line number where fn is called.
+ *@stack: pointer to the stack.
+ *@line_number: line number where push fn called.
 */
 
 void swap(stack_t **stack, unsigned int line_number)
