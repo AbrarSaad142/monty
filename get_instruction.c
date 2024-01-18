@@ -21,24 +21,35 @@ void invalid_instruction(void)
 void get_instruction(void)
 {
 	int i = 0;
-
-	instruction_t instruction[] = {
-		{"push", &push}, {"pall", &pall},
-		{"pint", &pint}, {"pop", &pop}, {"swap", &swap},
-		{"add", &add}, {"nop", &nop}, {NULL, NULL}
-
+	instruction_t instructions[] = {
+		{"push", &push},
+		{"pop", &pop},
+		{"pint", &pint},
+		{"swap", &swap},
+		{"nop", &nop},
+		{"add", &add},
+		{"pall", &pall},
+		{"sub", &sub},
+		{NULL, NULL}
 	};
 
-	if (arguments->n_tokens == 0)
-	return;
+	if (arguments->n_tokens == 0) /* no Instructions */
+		return;
 
-	for (; instruction[i].opcode != NULL; i++)
+	if (arguments->tokens[0][0] == '#')
 	{
-		/* compare opcode of Instruction to first token (instruct..) */
-		if (strcmp(instruction[i].opcode, arguments->tokens[0]) == 0)
+		arguments->instruction->opcode = "nop";
+		arguments->instruction->f = nop;
+		return;
+	}
+
+	for (; instructions[i].opcode != NULL; i++)
+	{
+		/* compare opcode of Instruction to first token (Instruct..) */
+		if (strcmp(instructions[i].opcode, arguments->tokens[0]) == 0)
 		{
-			arguments->instruction->opcode = instruction[i].opcode;
-			arguments->instruction->f = instruction[i].f;
+			arguments->instruction->opcode = instructions[i].opcode;
+			arguments->instruction->f = instructions[i].f;
 			return;
 		}
 	}
