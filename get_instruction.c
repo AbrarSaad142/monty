@@ -24,7 +24,7 @@ void get_instruction(void)
 
 	instruction_t instruction[] = {
 		{"push", &push}, {"pall", &pall},
-		{"pint", &pint}, {NULL, NULL}
+		{"pint", &pint}, {"pop", &pop}, {NULL, NULL}
 
 	};
 
