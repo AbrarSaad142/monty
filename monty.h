@@ -1,7 +1,15 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _POSIX_C_SOURCE  200809L
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <ctype.h>
+#include <string.h>
+
 
 
 /**
@@ -37,4 +45,44 @@ typedef struct instruction_s
 
 } instruction_t;
 
+/**
+* struct argc_s - hold variables.
+* @stream: pointer to the file.
+* @line: line of text read from stream.
+* @line_number: line number.
+* @tokens: used to store tokens from line.
+* @n_tokens: number of tokens created from line.
+* @instruction: instruction from line.
+* @head: pointer to the stack
+* @stack_length: length of the stack
+* Description: hold variables that will be
+*used in differen fn
+*/
+typedef struct argc_s
+{
+	FILE *stream;
+	char *line;
+	unsigned int line_number;
+	char **tokens;
+	int n_tokens;
+	instruction_t *instruction;
+	struct stack_s *head;
+	unsigned int stack_length;
+} argc_t;
+
+extern argc_t *arguments;
+void malloc_failed(void);
+void validate(int argc);
+int is_number(char *str);
+void init_arguments(void);
+void get_stream(char *filename);
+void get_instruction(void);
+void tokenize_line(void);
+void free_tokens(void);
+void run_instruction(void);
+void close_stream(void);
+void free_arguments(void);
+void free_stack(stack_t *head);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 #endif
