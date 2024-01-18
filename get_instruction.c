@@ -25,6 +25,7 @@ void get_instruction(void)
 	instruction_t instruction[] = {
 		{"push", &push}, {"pall", &pall},
 		{"pint", &pint}, {NULL, NULL}
+
 	};
 
 	if (arguments->n_tokens == 0)

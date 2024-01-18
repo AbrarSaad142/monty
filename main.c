@@ -8,7 +8,6 @@ argc_t *arguments = NULL;
  *@argv: a pointer to an array of strings containing.
  *Return: return 0 (success)
 */
-
 int main(int argc, char **argv)
 {
 	size_t n = 0;

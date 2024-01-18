@@ -2,6 +2,7 @@
 #define MONTY_H
 #define _POSIX_C_SOURCE  200809L
 #define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -10,7 +11,7 @@
 #include <fcntl.h>
 #include <ctype.h>
 #include <string.h>
-#include <stdarg.h>
+
 
 
 
@@ -89,4 +90,5 @@ void free_all_args(void);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+
 #endif
