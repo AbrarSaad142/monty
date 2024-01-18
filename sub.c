@@ -13,7 +13,7 @@ stack_t *tmp1, *tmp2;
 	(void) stack;
 	if (arguments->stack_length < 2)
 	{
-		dprintf(2, "L%d: can't sub, stack too short", line_number);
+		dprintf(2, "L%d: can't sub, stack too short\n", line_number);
 		free_all_args();
 		exit(EXIT_FAILURE);
 	}

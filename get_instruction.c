@@ -31,19 +31,12 @@ void get_instruction(void)
 		{"pall", &pall},
 		{"sub", &sub},
 		{"mul", &mul},
+		{"div", &_div},
 		{NULL, NULL}
 	};
 
 	if (arguments->n_tokens == 0) /* no Instructions */
 		return;
-
-	if (arguments->tokens[0][0] == '#')
-	{
-		arguments->instruction->opcode = "nop";
-		arguments->instruction->f = nop;
-		return;
-	}
-
 	for (; instructions[i].opcode != NULL; i++)
 	{
 		/* compare opcode of Instruction to first token (Instruct..) */
