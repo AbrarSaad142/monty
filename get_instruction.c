@@ -30,6 +30,7 @@ void get_instruction(void)
 		{"add", &add},
 		{"pall", &pall},
 		{"sub", &sub},
+		{"mul", &mul},
 		{NULL, NULL}
 	};
 
